@@ -3,7 +3,27 @@ import { GithubContext } from '../context/context';
 import styled from 'styled-components';
 
 const Followers = () => {
-  return <h2>followers component</h2>;
+  const {followers} = React.useContext(GithubContext)
+  
+
+
+  return <section>
+    <Wrapper>
+      <div className="followers">
+        {followers.map((follower, index)=>{
+          const {avatar_url: img, html_url, login} = follower //Destructring each follower object
+          return <article key={index}>
+            <img src={img} alt={login} />
+            <div>
+              <h4>{login}</h4>
+            <a href={html_url}>{html_url}</a>
+
+            </div>
+          </article>
+        })}
+      </div>
+    </Wrapper>
+  </section>;
 };
 
 const Wrapper = styled.article`
@@ -49,6 +69,7 @@ const Wrapper = styled.article`
       width: 45px;
       border-radius: 50%;
       object-fit: cover;
+      border: 3px solid
     }
     h4 {
       margin-bottom: 0;

@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
+import logoImg from "../images/wdt-brandwhite.png";
 
 const Navbar = () => {
-  return <h2>navbar component</h2>;
+  // const { isAuthenticated, loginWithRedirect, logout, user, isLoading} = useAuth0();
+  return <Wrapper>
+    <img src={logoImg} className=""/>
+      <b>Powered By WireDev</b>
+  </Wrapper>;
 };
 
 const Wrapper = styled.nav`
@@ -20,9 +25,12 @@ const Wrapper = styled.nav`
     margin-bottom: 0;
     font-weight: 400;
   }
+  b{
+    font-size: 16px;
+  }
   img {
-    width: 35px !important;
-    height: 35px;
+    width: 50px !important;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
   }
